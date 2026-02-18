@@ -1,0 +1,35 @@
+import { ExpoConfig, ConfigContext } from 'expo/config';
+
+export default ({ config }: ConfigContext): ExpoConfig => ({
+  ...config,
+  name: 'Little AI',
+  slug: 'little-ai',
+  version: '1.0.0',
+  orientation: 'portrait',
+  userInterfaceStyle: 'dark',
+  splash: {
+    backgroundColor: '#000000',
+    resizeMode: 'contain',
+  },
+  platforms: ['ios', 'android', 'web'],
+  assetBundlePatterns: ['**/*'],
+  ios: {
+    supportsTablet: true,
+    bundleIdentifier: 'com.littleai.messenger',
+  },
+  android: {
+    package: 'com.littleai.messenger',
+    adaptiveIcon: {
+      backgroundColor: '#000000',
+    },
+    permissions: [
+      'CAMERA',
+      'READ_EXTERNAL_STORAGE',
+      'WRITE_EXTERNAL_STORAGE',
+      'READ_CONTACTS',
+    ],
+  },
+  web: {
+    bundler: 'metro',
+  },
+});
